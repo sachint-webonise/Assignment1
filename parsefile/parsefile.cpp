@@ -197,7 +197,7 @@ int main ()
 			temp=temp+str; 
         	}
 	}
-	cout<<temp;
+	cout<<temp;						//temp contains all lines in file
 
 	
 	
