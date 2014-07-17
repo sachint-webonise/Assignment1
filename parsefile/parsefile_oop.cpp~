@@ -9,8 +9,32 @@
 
 using namespace std;
 
+
+class Parsing
+{
+public:
+       
+        bool isPHP(string[],int);
+        bool isJava(string[],int);
+        bool isRuby(string[],int);
+        
+        void showClassPHP(string[],int);
+	void showClassJava(string[],int);
+	void showClassRuby(string[],int);
+	
+	
+	void showMethodsPHP(string[],int);
+	void showMethodsJava(string[],int);
+	void showMethodsRuby(string[],int);
+	
+	void showPropertiesPHP(string[],int);
+	void showPropertiesJava(string[],int);
+	void showPropertiesRuby(string[],int);
+};
+
+
 //Check if file passed is a PHP file
-bool isPHP(string hold[],int n)
+bool Parsing :: isPHP(string hold[],int n)
 {
 	if(hold[0].compare("<?php")==0)
 		return true;
@@ -19,7 +43,7 @@ bool isPHP(string hold[],int n)
 }
 
 //Check if file passed is a Java file
-bool isJava(string hold[],int n)
+bool Parsing :: isJava(string hold[],int n)
 {
 	
 	vector<string> v;
@@ -48,7 +72,7 @@ bool isJava(string hold[],int n)
 }
 
 //Check if file passed is Ruby file
-bool isRuby(string hold[],int n)
+bool Parsing :: isRuby(string hold[],int n)
 {
 	for(int i=0;i<n;i++){
 		if(hold[i].compare("def")==0 || hold[i].compare("end")==0)
@@ -59,7 +83,7 @@ bool isRuby(string hold[],int n)
 }
 
 //List the classes in PHP file
-void showClassPHP(string hold[],int n)
+void Parsing :: showClassPHP(string hold[],int n)
 {
 	for(int i=0;i<n;i++){
 		if(hold[i].compare("class")==0)
@@ -68,7 +92,7 @@ void showClassPHP(string hold[],int n)
 }
 
 //List the classes in Java file
-void showClassJava(string hold[],int n)
+void Parsing :: showClassJava(string hold[],int n)
 {
 	for(int i=0;i<n;i++){
 		if(hold[i].compare("class")==0)
@@ -77,7 +101,7 @@ void showClassJava(string hold[],int n)
 }
 
 //List the classes in Ruby file
-void showClassRuby(string hold[],int n)
+void Parsing :: showClassRuby(string hold[],int n)
 {
 	for(int i=0;i<n;i++){
 		if(hold[i].compare("class")==0)
@@ -85,8 +109,8 @@ void showClassRuby(string hold[],int n)
 		}
 }
 
-//List the methods in PHP file
-void showMethodsPHP(string hold[],int n)
+//List the classes in PHP file
+void Parsing :: showMethodsPHP(string hold[],int n)
 {
 	for(int i=0;i<n-2;i++){
 		if((hold[i].compare("public")==0) || (hold[i].compare("private")==0)|| (hold[i].compare("protected")==0)){
@@ -106,7 +130,7 @@ void showMethodsPHP(string hold[],int n)
 }
 
 //List the methods in Java file
-void showMethodsJava(string hold[],int n)
+void Parsing :: showMethodsJava(string hold[],int n)
 {
 	for(int i=0;i<n-2;i++){
 		if((hold[i].compare("public")==0) || (hold[i].compare("private")==0)|| (hold[i].compare("protected")==0)){
@@ -131,7 +155,7 @@ void showMethodsJava(string hold[],int n)
 }
 
 //List the methods in Ruby file
-void showMethodsRuby(string hold[],int n)
+void Parsing :: showMethodsRuby(string hold[],int n)
 {
 	for(int i=0;i<n-1;i++){
 		if(hold[i].compare("def")==0)
@@ -140,7 +164,7 @@ void showMethodsRuby(string hold[],int n)
 }
 
 //List the class properties of PHP file
-void showPropertiesPHP(string hold[],int n)
+void Parsing :: showPropertiesPHP(string hold[],int n)
 {
     	for(int i=0;i<n;i++){
 	   l1: 	for(int j=0;j<hold[i].size();j++){
@@ -160,7 +184,7 @@ void showPropertiesPHP(string hold[],int n)
 }}
 
 //List the class properties of Java file
-void showPropertiesJava(string hold[],int n)
+void Parsing :: showPropertiesJava(string hold[],int n)
 {
 	for(int i=0;i<n-2;i++){
 		if((hold[i].compare("public")==0) || (hold[i].compare("private")==0)|| (hold[i].compare("protected")==0)){
@@ -175,7 +199,7 @@ void showPropertiesJava(string hold[],int n)
 }
 
 //List the class properties of Ruby file
-void showPropertiesRuby(string hold[],int n)
+void Parsing :: showPropertiesRuby(string hold[],int n)
 {
 	for(int i=0;i<n;i++)
 	{	
@@ -230,26 +254,25 @@ int main ()
     	for(i = 0; i < total; i++){
         	cout << hold[i] << endl;
     	}
-
 	
-
-	if(isPHP(hold,total)){
+	Parsing obj;
+	if(obj.isPHP(hold,total)){
 		printf("%s\n","PHP File");		
-		showClassPHP(hold,total);	
-		showMethodsPHP(hold,total);	
-		showPropertiesPHP(hold,total);
+		obj.showClassPHP(hold,total);	
+		obj.showMethodsPHP(hold,total);	
+		obj.showPropertiesPHP(hold,total);
 	}
-	else if(isJava(hold,total)){
+	else if(obj.isJava(hold,total)){
 		printf("%s\n","Java File");		
-		showClassJava(hold,total);
-		showMethodsJava(hold,total);
-		showPropertiesJava(hold,total);
+		obj.showClassJava(hold,total);
+		obj.showMethodsJava(hold,total);
+		obj.showPropertiesJava(hold,total);
 	}
-	else if(isRuby(hold,total)){
+	else if(obj.isRuby(hold,total)){
 		printf("%s\n","Ruby File");		
-		showClassRuby(hold,total);
-		showMethodsRuby(hold,total);
-		showPropertiesRuby(hold,total);
+		obj.showClassRuby(hold,total);
+		obj.showMethodsRuby(hold,total);
+		obj.showPropertiesRuby(hold,total);
 	}
 	else
 	cout<<"None";

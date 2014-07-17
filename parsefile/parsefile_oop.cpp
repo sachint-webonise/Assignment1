@@ -109,7 +109,7 @@ void Parsing :: showClassRuby(string hold[],int n)
 		}
 }
 
-//List the classes in PHP file
+//List the methods in PHP file
 void Parsing :: showMethodsPHP(string hold[],int n)
 {
 	for(int i=0;i<n-2;i++){

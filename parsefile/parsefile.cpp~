@@ -85,7 +85,7 @@ void showClassRuby(string hold[],int n)
 		}
 }
 
-//List the methods in PHP file
+//List the classes in PHP file
 void showMethodsPHP(string hold[],int n)
 {
 	for(int i=0;i<n-2;i++){
