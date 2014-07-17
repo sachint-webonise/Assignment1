@@ -1,0 +1,20 @@
+
+parsefile.cpp
+=============
+The above file contains following functions;
+a)Identifying language of file.
+b)Identifying classname.
+c)Listing the methods inside the class with access specifiers.
+d)Listing the properties of the class.
+
+
+
+parsefile_oop.cpp
+=================
+The above program has been done in object oriented way.
+The above file contains following functions;
+a)Identifying language of file.
+b)Identifying classname.
+c)Listing the methods inside the class with access specifiers.
+d)Listing the properties of the class.
+
